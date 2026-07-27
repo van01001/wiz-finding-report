@@ -6,6 +6,12 @@ Audit trail of patterns and conventions learned while operating this skill. Spli
 > Organization-specific identifiers (incident numbers, owner names, assignment groups) have been
 > generalized in this portable copy; the methodology and Wiz control patterns are unchanged.
 
+### 2026-07-27 (public-repo prep — scrub + fixes)
+Genericized an internal team name in the ServiceNow template to "the security team". Corrected the
+split line-count (738, not 646). Fixed `.gitignore` demo path to `scripts/build_report.py --demo`.
+Narrowed `wiz_fetch._urlopen`'s TLS fallback to `ssl.SSLCertVerificationError` (was any `SSLError`,
+which could silently downgrade a genuine MITM, not just a corporate TLS-inspection proxy).
+
 ### 2026-07-26 (publication pass — structure, sanitization, TLS default)
 Pre-publication review of the whole skill. Behaviour of the report workflow is unchanged; what
 changed is the reference builder, the always-loaded context size, and the defaults.
@@ -26,7 +32,7 @@ of those strings were visible in the committed PNG. Values in the builder are no
 `V(placeholder, demo)`, so one script produces both the `[EXAMPLE]` skeleton and a wholly fictional
 `acme-*` sample — the demo cannot drift from the layout, and cannot contain real data.
 
-**SKILL.md split for context cost: 1002 → 646 lines (88.6 KB → 51.9 KB).** The per-rule catalog and the
+**SKILL.md split for context cost: 1002 → 738 lines (88.6 KB → 58.2 KB).** The per-rule catalog and the
 GraphQL gotchas were ~40% of a file that loads on *every* invocation while being needed only
 situationally. Moved verbatim to `references/rule-catalog.md` and `references/graphql-notes.md`, with
 pointers in SKILL.md that state the one thing you must know up front (which source is authoritative for

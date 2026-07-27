@@ -258,7 +258,7 @@ Important Notes:
 
 A thorough impact assessment must be completed prior to implementing any changes in the production environment.
 Remediation should be completed within the defined VM SLA timeline of [N] days.
-"Please do not close this incident. The ISRM team will validate the remediation and update the status to Resolved upon verification".
+"Please do not close this incident. The security team will validate the remediation and update the status to Resolved upon verification".
 
 Contact the SecOps team for any clarification or support required.
 
@@ -410,7 +410,7 @@ remediator's primary brief; the attached report is the supporting evidence.
 - Dates are typed text by default; offer real Excel date cells / formula-driven due dates if the user
   wants to sort/compute across many findings.
 - **Two-file split**: the finding workbook (shared with remediation) contains only the report tabs; the
-  blank reusable template lives in a SEPARATE standalone file (`Finding_Report_Template.xlsx`).
+  blank reusable template is produced on demand by `scripts/build_report.py` (the placeholder workbook it writes to `Output/`); it is not shipped as a separate file.
 - **Status-update report for a partially-remediated finding (learned 2026-07-08).** When some of an existing
   report's issues have since resolved and the user wants a fresh report: re-query each original issue's LIVE
   status, keep ALL originally-reported assets, mark the fixed ones **Resolved** with the reason (e.g. "no

@@ -109,7 +109,7 @@ def _urlopen(req, timeout):
     try:
         return urllib.request.urlopen(req, timeout=timeout)
     except urllib.error.URLError as e:
-        cert_problem = isinstance(e.reason, ssl.SSLError)
+        cert_problem = isinstance(e.reason, ssl.SSLCertVerificationError)
         if not cert_problem or os.environ.get("WIZ_VERIFY_SSL"):
             raise
         if not _warned_insecure[0]:
