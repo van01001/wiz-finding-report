@@ -1,0 +1,51 @@
+{
+  "_comment": "Copy this file to 'skill_config.json' and fill in your organization's values. The skill's first-run setup can do this for you interactively. 'skill_config.json' is git-ignored so your settings are never committed. Environment variables (WIZ_PORTAL_URL, WIZ_API_URL, WIZ_API_TOKEN, SNOW_INSTANCE_URL) override these values when set.",
+
+  "analyst": {
+    "name": "Firstname Lastname",
+    "email": "you@example.com",
+    "report_author": "Lastname, Firstname"
+  },
+
+  "wiz": {
+    "auth_mode": "browser_sso",
+    "portal_url": "",
+    "api_url": "https://api.<region>.app.wiz.io/graphql",
+    "_help": {
+      "auth_mode": "browser_sso | api_token | service_account",
+      "portal_url": "For browser_sso: your organization's IdP-initiated SSO link to Wiz (Okta / Entra ID / Ping). Leave blank to pass --portal-url on the command line or set WIZ_PORTAL_URL.",
+      "api_url": "Your Wiz tenant GraphQL endpoint, e.g. https://api.<region>.app.wiz.io/graphql (login can capture this automatically)."
+    }
+  },
+
+  "servicenow": {
+    "instance_url": "https://<your-org>.service-now.com",
+    "default_assignment_group": "Vulnerability_Management",
+    "idp_login_host": "",
+    "_help": {
+      "instance_url": "Your ServiceNow base URL.",
+      "default_assignment_group": "Fallback assignment group when no technical owner is known.",
+      "idp_login_host": "Optional: your SSO login host (e.g. login.microsoftonline.com, logon.example.com) so the ticket automation knows you are still on the IdP page and not yet in ServiceNow."
+    }
+  },
+
+  "report": {
+    "team_name": "SecOps Team",
+    "contact_line": "For any clarification or support, please contact the SecOps team.",
+    "sign_off": "Regards,\nSecOps Team",
+    "_help": {
+      "team_name": "How your security team is named in deliverables and ticket text.",
+      "contact_line": "First line of the Contact block at the end of Finding Summary.",
+      "sign_off": "Closing of the Contact block and of any ticket text. Use \\n for line breaks. Set to \"\" to omit a sign-off entirely."
+    }
+  },
+
+  "sla_days": {
+    "_comment": "Days to remediate by severity, per YOUR organization's vulnerability-management policy. The values below are defaults, not requirements — change them to match your own SLA and every Target Remediation Date will follow. Keys beginning with _ are ignored.",
+    "URGENT": 5,
+    "CRITICAL": 15,
+    "HIGH": 30,
+    "MEDIUM": 60,
+    "LOW": 120
+  }
+}
